@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>exitium.gg — external CS2 ESP</title>
+	<meta name="description" content="exitium.gg — the modern external CS2 ESP. Streamproof, animated, configurable, and beautiful." />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- animated rain background -->
+<canvas id="rain"></canvas>
+
+<!-- nav -->
+<header class="nav">
+	<a href="#home" class="brand">
+		<span class="brand-mark"></span>
+		<span class="brand-name">exitium<span class="brand-dot">.</span>gg</span>
+		<span class="brand-tag">external</span>
+	</a>
+
+	<nav class="tabs" id="tabs">
+		<a href="#home"     class="tab active">Home</a>
+		<a href="#features" class="tab">Features</a>
+		<a href="#preview"  class="tab">Preview</a>
+		<a href="#gallery"  class="tab">Gallery</a>
+		<a href="#faq"      class="tab">FAQ</a>
+		<a href="https://discord.gg/APsnqP6R4M" target="_blank" rel="noopener" class="tab tab-discord">
+			<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4A17.9 17.9 0 0 0 15.9 3l-.2.4a16.5 16.5 0 0 1 3.7 1.3 12 12 0 0 0-14.8 0A16.5 16.5 0 0 1 8.3 3.4L8.1 3A17.9 17.9 0 0 0 3.7 4.4C1.6 8.2.8 12 .9 15.7a18 18 0 0 0 5.4 2.7l1.1-1.7a11.6 11.6 0 0 1-1.8-.9l.4-.3a12.9 12.9 0 0 0 12 0l.4.3c-.6.3-1.2.6-1.8.9l1 1.7a18 18 0 0 0 5.5-2.7c.1-4.3-.8-8.1-2.8-11.3Zm-12 9.1c-1.1 0-2-1-2-2.3 0-1.2.9-2.2 2-2.2 1.1 0 2 1 2 2.3 0 1.2-.9 2.2-2 2.2Zm7.4 0c-1.1 0-2-1-2-2.3 0-1.2.9-2.2 2-2.2 1.1 0 2 1 2 2.3 0 1.2-.9 2.2-2 2.2Z"/></svg>
+			Discord
+		</a>
+		<a href="https://exitium.sellhub.cx/" target="_blank" rel="noopener" class="tab tab-buy">
+			Get Exitium
+			<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M10 7h7v7"/></svg>
+		</a>
+	</nav>
+
+	<button class="burger" id="burger" aria-label="menu">
+		<span></span><span></span><span></span>
+	</button>
+</header>
+
+<!-- hero -->
+<section class="hero" id="home">
+	<div class="hero-glow"></div>
+	<div class="container hero-inner">
+		<div class="hero-copy">
+			<div class="eyebrow">
+				<span class="live-dot"></span>
+				<span>release · stable · streamproof</span>
+			</div>
+			<h1 class="title">
+				<span class="gradient-text">exitium.gg</span>
+				<span class="sub">external CS2 ESP, reimagined.</span>
+			</h1>
+			<p class="lede">
+				A modern, animated, external ESP that stays out of your way — and out of your stream.
+				Per-team colors, live 2D radar, distance fade, floating damage, rainbow enemies,
+				and a GUI you'll actually want to open.
+			</p>
+			<div class="cta-row">
+				<a href="https://exitium.sellhub.cx/" target="_blank" rel="noopener" class="btn btn-primary">
+					Get Exitium
+					<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m5 12 14 0M13 5l7 7-7 7"/></svg>
+				</a>
+				<a href="https://discord.gg/APsnqP6R4M" target="_blank" rel="noopener" class="btn btn-ghost">
+					<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4A17.9 17.9 0 0 0 15.9 3l-.2.4a16.5 16.5 0 0 1 3.7 1.3 12 12 0 0 0-14.8 0A16.5 16.5 0 0 1 8.3 3.4L8.1 3A17.9 17.9 0 0 0 3.7 4.4C1.6 8.2.8 12 .9 15.7a18 18 0 0 0 5.4 2.7l1.1-1.7a11.6 11.6 0 0 1-1.8-.9l.4-.3a12.9 12.9 0 0 0 12 0l.4.3c-.6.3-1.2.6-1.8.9l1 1.7a18 18 0 0 0 5.5-2.7c.1-4.3-.8-8.1-2.8-11.3Zm-12 9.1c-1.1 0-2-1-2-2.3 0-1.2.9-2.2 2-2.2 1.1 0 2 1 2 2.3 0 1.2-.9 2.2-2 2.2Zm7.4 0c-1.1 0-2-1-2-2.3 0-1.2.9-2.2 2-2.2 1.1 0 2 1 2 2.3 0 1.2-.9 2.2-2 2.2Z"/></svg>
+					Join Discord
+				</a>
+			</div>
+
+			<div class="stat-row">
+				<div class="stat">
+					<div class="stat-num">~130<span>fps</span></div>
+					<div class="stat-label">render impact</div>
+				</div>
+				<div class="stat">
+					<div class="stat-num">0<span>kernel</span></div>
+					<div class="stat-label">fully external</div>
+				</div>
+				<div class="stat">
+					<div class="stat-num">1<span>click</span></div>
+					<div class="stat-label">streamproof</div>
+				</div>
+				<div class="stat">
+					<div class="stat-num">6<span>presets</span></div>
+					<div class="stat-label">color schemes</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="hero-art">
+			<div class="art-shell">
+				<div class="art-bar">
+					<span class="art-dot art-dot-r"></span>
+					<span class="art-dot art-dot-y"></span>
+					<span class="art-dot art-dot-g"></span>
+					<span class="art-title">exitium.gg — menu</span>
+				</div>
+				<img src="menu.png" alt="exitium.gg in-game menu preview" />
+				<div class="art-glow"></div>
+			</div>
+			<div class="art-chip chip-a">streamproof</div>
+			<div class="art-chip chip-b">2D radar</div>
+			<div class="art-chip chip-c">low-HP pulse</div>
+		</div>
+	</div>
+
+	<div class="scroll-hint">
+		<span></span>
+		<div>scroll</div>
+	</div>
+</section>
+
+<!-- features -->
+<section class="section" id="features">
+	<div class="container">
+		<div class="section-head">
+			<div class="kicker">features</div>
+			<h2>Everything you'd ask for. Nothing you wouldn't.</h2>
+			<p>Built external. Rendered to an overlay window. No injection, no DLLs, no hooks in the game process.</p>
+		</div>
+
+		<div class="feature-grid">
+			<div class="feature">
+				<div class="ficon" data-icon="radar"></div>
+				<h3>2D Radar</h3>
+				<p>Draggable, resizable north-up radar with per-team dots, planted-bomb indicator, and outward arrows for off-range targets.</p>
+			</div>
+			<div class="feature">
+				<div class="ficon" data-icon="fade"></div>
+				<h3>Distance Fade</h3>
+				<p>True meter-based range filter with configurable fade curve. Far targets fade out gracefully instead of spamming your screen.</p>
+			</div>
+			<div class="feature">
+				<div class="ficon" data-icon="tracer"></div>
+				<h3>Animated Tracers</h3>
+				<p>Gradient-faded snaplines from any origin — bottom, center, top, or crosshair — with off-screen direction arrows.</p>
+			</div>
+			<div class="feature">
+				<div class="ficon" data-icon="dmg"></div>
+				<h3>Damage Numbers</h3>
+				<p>Floating "-N" numbers rise and fade when enemies take damage. Live HP tracking per steam ID, per frame.</p>
+			</div>
+			<div class="feature">
+				<div class="ficon" data-icon="pulse"></div>
+				<h3>Low-HP Pulse</h3>
+				<p>Targets under your HP threshold get a pulsing red outline. You'll never miss the clean-up frag again.</p>
+			</div>
+			<div class="feature">
+				<div class="ficon" data-icon="palette"></div>
+				<h3>Color Presets</h3>
+				<p>Default, Valorant, Classic, Neon, Monochrome, High Contrast. One click applies box, skeleton, tracker and tracer.</p>
+			</div>
+			<div class="feature">
+				<div class="ficon" data-icon="rainbow"></div>
+				<h3>Rainbow Enemies</h3>
+				<p>Optional HSV-rotating enemy colors. Loud, confident, and impossible to miss in any lighting.</p>
+			</div>
+			<div class="feature">
+				<div class="ficon" data-icon="shield"></div>
+				<h3>Streamproof</h3>
+				<p>One checkbox excludes the overlay from OBS, Discord, Windows capture, and Xbox Game Bar. Your stream stays clean.</p>
+			</div>
+			<div class="feature">
+				<div class="ficon" data-icon="gui"></div>
+				<h3>Modern GUI</h3>
+				<p>Animated purple UI with pulsing accents, sliding tabs, live rain backdrop, and row-hover highlights. Looks like software — not a cheat.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- before/after preview -->
+<section class="section" id="preview">
+	<div class="container">
+		<div class="section-head">
+			<div class="kicker">live preview</div>
+			<h2>Drag to compare. <span class="muted">Off on the left. On on the right.</span></h2>
+			<p>Real screenshots. Real ESP. No editing.</p>
+		</div>
+
+		<div class="compare" id="compare">
+			<img class="compare-img compare-before" src="esp-off.png" alt="CS2 — ESP off" draggable="false" />
+			<div class="compare-after-wrap">
+				<img class="compare-img compare-after" src="esp-on.png" alt="CS2 — ESP on" draggable="false" />
+			</div>
+			<div class="compare-divider">
+				<div class="compare-handle" aria-label="drag to compare">
+					<svg viewBox="0 0 24 24" width="18" height="18"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m9 6-6 6 6 6M15 6l6 6-6 6"/></svg>
+				</div>
+			</div>
+			<div class="compare-label compare-label-before">OFF</div>
+			<div class="compare-label compare-label-after">ON</div>
+		</div>
+	</div>
+</section>
+
+<!-- gallery / menu spotlight -->
+<section class="section section-dim" id="gallery">
+	<div class="container gallery-grid">
+		<div class="gallery-copy">
+			<div class="kicker">the menu</div>
+			<h2>A GUI that doesn't look like one.</h2>
+			<p>
+				Every panel animates. Accents pulse. Tabs slide. Checkboxes glow on hover. A soft purple
+				aurora drifts across the top while rain falls quietly behind every control. It's the
+				first external ESP menu people actually want to show off.
+			</p>
+			<ul class="bulleted">
+				<li>Animated pill tabs with a sliding glow indicator</li>
+				<li>Per-row hover highlights and pulsing panel titles</li>
+				<li>Team / Enemy split color picker with one-click presets</li>
+				<li>Live rain + drifting aurora drawn on the window's own draw list</li>
+			</ul>
+		</div>
+
+		<figure class="gallery-shot">
+			<img src="menu.png" alt="exitium.gg menu — purple UI with ESP panels, rain backdrop, and animated tabs" />
+			<figcaption>exitium.gg &mdash; in-game menu, captured in debug</figcaption>
+		</figure>
+	</div>
+</section>
+
+<!-- faq -->
+<section class="section" id="faq">
+	<div class="container faq-wrap">
+		<div class="section-head">
+			<div class="kicker">faq</div>
+			<h2>Answers, not asterisks.</h2>
+		</div>
+
+		<div class="faq">
+			<details open>
+				<summary>Is exitium.gg really external?</summary>
+				<div class="faq-body">
+					Yes. It runs in its own process with a transparent overlay window, reads memory via standard
+					user-mode APIs, and never injects, hooks, or writes to the game. No DLL, no driver.
+				</div>
+			</details>
+			<details>
+				<summary>Is it streamproof?</summary>
+				<div class="faq-body">
+					One toggle excludes the overlay from OBS, Discord, Windows Game Bar and default Windows
+					capture. Your viewers see a clean game, you see the ESP.
+				</div>
+			</details>
+			<details>
+				<summary>What's the performance hit?</summary>
+				<div class="faq-body">
+					Designed for high-refresh. Optional VSync, smoothed FPS readout, and a streamlined render
+					loop that batches every shape into a single ImGui draw list per frame.
+				</div>
+			</details>
+			<details>
+				<summary>How do I configure it?</summary>
+				<div class="faq-body">
+					Press <span class="kbd">INSERT</span> or <span class="kbd">Right&nbsp;Shift</span> to open the menu.
+					Press <span class="kbd">END</span> to save and exit. All settings persist to <code>config.json</code>.
+				</div>
+			</details>
+			<details>
+				<summary>Where can I get help?</summary>
+				<div class="faq-body">
+					Jump in the <a href="https://discord.gg/APsnqP6R4M" target="_blank" rel="noopener">Discord</a> —
+					that's where updates, support, and community config presets live.
+				</div>
+			</details>
+		</div>
+	</div>
+</section>
+
+<!-- closing cta -->
+<section class="section cta-final">
+	<div class="container cta-card">
+		<div class="cta-card-glow"></div>
+		<h2>Ready to see the battlefield clearly?</h2>
+		<p>One purchase. One download. Open the menu and you're set.</p>
+		<div class="cta-row">
+			<a href="https://exitium.sellhub.cx/" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+				Get Exitium
+				<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m5 12 14 0M13 5l7 7-7 7"/></svg>
+			</a>
+			<a href="https://discord.gg/APsnqP6R4M" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">
+				<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4A17.9 17.9 0 0 0 15.9 3l-.2.4a16.5 16.5 0 0 1 3.7 1.3 12 12 0 0 0-14.8 0A16.5 16.5 0 0 1 8.3 3.4L8.1 3A17.9 17.9 0 0 0 3.7 4.4C1.6 8.2.8 12 .9 15.7a18 18 0 0 0 5.4 2.7l1.1-1.7a11.6 11.6 0 0 1-1.8-.9l.4-.3a12.9 12.9 0 0 0 12 0l.4.3c-.6.3-1.2.6-1.8.9l1 1.7a18 18 0 0 0 5.5-2.7c.1-4.3-.8-8.1-2.8-11.3Zm-12 9.1c-1.1 0-2-1-2-2.3 0-1.2.9-2.2 2-2.2 1.1 0 2 1 2 2.3 0 1.2-.9 2.2-2 2.2Zm7.4 0c-1.1 0-2-1-2-2.3 0-1.2.9-2.2 2-2.2 1.1 0 2 1 2 2.3 0 1.2-.9 2.2-2 2.2Z"/></svg>
+				Join the Discord
+			</a>
+		</div>
+	</div>
+</section>
+
+<footer class="foot">
+	<div class="container foot-inner">
+		<div class="foot-brand">
+			<span class="brand-mark"></span>
+			exitium<span class="brand-dot">.</span>gg
+		</div>
+		<div class="foot-links">
+			<a href="#features">Features</a>
+			<a href="#preview">Preview</a>
+			<a href="#gallery">Gallery</a>
+			<a href="#faq">FAQ</a>
+			<a href="https://discord.gg/APsnqP6R4M" target="_blank" rel="noopener">Discord</a>
+			<a href="https://exitium.sellhub.cx/" target="_blank" rel="noopener">Get Exitium</a>
+		</div>
+		<div class="foot-fine">
+			© <span id="yr"></span> exitium.gg &middot; Not affiliated with Valve or Counter-Strike 2.
+		</div>
+	</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
